@@ -14,9 +14,14 @@
     </style>
   </head>
   <body>
+    <div class="page-header text-center">
+      <h1><span class="fa fa-anchor"></span> Profile Page</h1>
+<!--       <a href="/logout" class="btn btn-default btn-sm">Logout</a> -->
+      <a href="/logout" class="btn btn-default"><span class="fa fa-user"></span>Logout</a>
     <% if (user.local.email) { %>
-                    <p id="username"><%=user.local.email%></p>
+                  <strong>Email</strong>: <%= user.local.email %><br>
                 <% } %>
+    </div>
     <ul id="messages"></ul>
     <form action="">
       <input id="m" autocomplete="off" /><button>Send</button>

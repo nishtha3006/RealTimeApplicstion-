@@ -47,7 +47,7 @@ module.exports = function(passport) {
 
     }));
 
-    //login 
+    //sign-up 
     passport.use('local-signup', new LocalStrategy({
         usernameField : 'email',
         passwordField : 'password',
@@ -83,10 +83,10 @@ module.exports = function(passport) {
                         var date=new Date();
                         var newLoggedinUser=new UserInfo();
                         newLoggedinUser.profile.email=email;
-                        newLoggedinUser.profile.dateOfLogin=date.getTime();
-                        var array=[];
-                        array.push({question : 'hello' , date: date.getTime() });
-                        newLoggedinUser.profile.sessions.push({questions : array});
+                        newLoggedinUser.profile.dateOfLogin=date.getTime().toISOString();
+                        // var array=[];
+                        // array.push({question : 'hello' , date: date.getTime() });
+                        // newLoggedinUser.profile.sessions.push({questions : array});
                         newLoggedinUser.save(function (err) {
                             if(err)
                                 console.log('error in saving');
